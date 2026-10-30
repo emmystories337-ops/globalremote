@@ -1,0 +1,535 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover remote jobs, freelance projects, internships and part-time opportunities worldwide with GlobalRemote.">
+  <title>GlobalRemote | Work From Anywhere</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f9fc;
+      color: #172033;
+      line-height: 1.6;
+    }
+
+    header {
+      background: white;
+      padding: 18px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e8edf4;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: 800;
+      color: #1769e0;
+    }
+
+    nav {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #344054;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-btn {
+      background: #1769e0;
+      color: white;
+      padding: 10px 17px;
+      border-radius: 7px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #102c59, #1769e0);
+      color: white;
+      padding: 85px 6%;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(34px, 6vw, 54px);
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      color: #dce8ff;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      font-size: 17px;
+    }
+
+    .search-box {
+      background: white;
+      padding: 9px;
+      border-radius: 10px;
+      max-width: 780px;
+      margin: auto;
+      display: flex;
+      gap: 8px;
+    }
+
+    .search-box input,
+    .search-box select {
+      min-width: 0;
+      flex: 1;
+      padding: 13px 10px;
+      border: none;
+      outline: none;
+      color: #344054;
+      background: white;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      background: #1769e0;
+      color: white;
+      padding: 13px 22px;
+      border-radius: 7px;
+      font-weight: bold;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 55px;
+      margin-top: 38px;
+      flex-wrap: wrap;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 22px;
+    }
+
+    .stat span {
+      color: #dce8ff;
+      font-size: 13px;
+    }
+
+    section {
+      padding: 65px 6%;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-heading h2 {
+      font-size: 29px;
+      margin-bottom: 8px;
+    }
+
+    .section-heading p {
+      color: #667085;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+    }
+
+    .category {
+      background: white;
+      padding: 25px 15px;
+      border: 1px solid #e7ebf2;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .category .emoji {
+      font-size: 30px;
+    }
+
+    .category h3 {
+      margin: 9px 0 3px;
+      font-size: 16px;
+    }
+
+    .category p {
+      color: #667085;
+      font-size: 13px;
+    }
+
+    .jobs {
+      background: #fff;
+    }
+
+    .job-list {
+      max-width: 900px;
+      margin: auto;
+      display: grid;
+      gap: 16px;
+    }
+
+    .job-card {
+      background: white;
+      border: 1px solid #e5eaf1;
+      border-radius: 10px;
+      padding: 23px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .job-card h3 {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .company {
+      color: #667085;
+      font-size: 14px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .tag {
+      background: #edf4ff;
+      color: #1769e0;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 12px;
+    }
+
+    .apply {
+      text-decoration: none;
+      background: #1769e0;
+      color: white;
+      padding: 10px 17px;
+      border-radius: 7px;
+      white-space: nowrap;
+      font-size: 13px;
+    }
+
+    .empty {
+      text-align: center;
+      color: #667085;
+      padding: 25px;
+      display: none;
+    }
+
+    .cta {
+      background: #eaf2ff;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .cta p {
+      color: #667085;
+      margin-bottom: 22px;
+    }
+
+    footer {
+      background: #10213d;
+      color: white;
+      padding: 35px 6%;
+      text-align: center;
+    }
+
+    footer p {
+      color: #b9c8df;
+      font-size: 13px;
+      margin-top: 8px;
+    }
+
+    @media(max-width: 700px) {
+      nav {
+        gap: 10px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 65px 5%;
+      }
+
+      .search-box {
+        flex-direction: column;
+      }
+
+      .search-box input,
+      .search-box select {
+        width: 100%;
+        padding: 14px;
+        border: 1px solid #eee;
+      }
+
+      .stats {
+        gap: 22px;
+      }
+
+      .categories {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .job-card {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .apply {
+        display: inline-block;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">GlobalRemote.</div>
+  <nav>
+    <a href="#jobs">Find Jobs</a>
+    <a href="#categories">Categories</a>
+    <a href="#about">About</a>
+    <a href="#jobs" class="nav-btn">Explore Jobs</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Your Next Opportunity<br>Starts Here.</h1>
+    <p>
+      Discover remote jobs, freelance projects,
+      internships and part-time opportunities
+      from companies around the world.
+    </p>
+
+    <div class="search-box">
+      <input id="searchInput"
+        type="search"
+        placeholder="Job title or keyword">
+
+      <select id="typeFilter">
+        <option value="">All opportunities</option>
+        <option value="Remote">Remote jobs</option>
+        <option value="Freelance">Freelance</option>
+        <option value="Internship">Internships</option>
+        <option value="Part-time">Part-time</option>
+      </select>
+
+      <button onclick="searchJobs()">Search</button>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <strong>Worldwide</strong>
+        <span>Opportunities</span>
+      </div>
+      <div class="stat">
+        <strong>4 Categories</strong>
+        <span>Work opportunities</span>
+      </div>
+      <div class="stat">
+        <strong>Global</strong>
+        <span>Talent community</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="categories">
+    <div class="section-heading">
+      <h2>Explore Opportunities</h2>
+      <p>Find the kind of work that fits your lifestyle.</p>
+    </div>
+
+    <div class="categories">
+      <div class="category">
+        <div class="emoji">💻</div>
+        <h3>Remote Jobs</h3>
+        <p>Work from anywhere</p>
+      </div>
+
+      <div class="category">
+        <div class="emoji">🚀</div>
+        <h3>Freelance</h3>
+        <p>Work on projects</p>
+      </div>
+
+      <div class="category">
+        <div class="emoji">🎓</div>
+        <h3>Internships</h3>
+        <p>Start your career</p>
+      </div>
+
+      <div class="category">
+        <div class="emoji">⏰</div>
+        <h3>Part-time</h3>
+        <p>Flexible opportunities</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="jobs" id="jobs">
+    <div class="section-heading">
+      <h2>Explore Job Opportunities</h2>
+      <p>Sample listings showing how opportunities will appear.</p>
+    </div>
+
+    <div class="job-list" id="jobList">
+
+      <article class="job-card"
+        data-title="Frontend Developer"
+        data-type="Remote">
+        <div>
+          <h3>Frontend Developer</h3>
+          <p class="company">Sample Company · Worldwide eligibility to be verified</p>
+          <div class="tags">
+            <span class="tag">Remote</span>
+            <span class="tag">Technology</span>
+            <span class="tag">Sample listing</span>
+          </div>
+        </div>
+        <span class="tag">Demo only</span>
+      </article>
+
+      <article class="job-card"
+        data-title="Graphic Designer"
+        data-type="Freelance">
+        <div>
+          <h3>Graphic Designer</h3>
+          <p class="company">Sample Creative Studio · Eligibility to be verified</p>
+          <div class="tags">
+            <span class="tag">Freelance</span>
+            <span class="tag">Design</span>
+            <span class="tag">Sample listing</span>
+          </div>
+        </div>
+        <span class="tag">Demo only</span>
+      </article>
+
+      <article class="job-card"
+        data-title="Marketing Intern"
+        data-type="Internship">
+        <div>
+          <h3>Marketing Intern</h3>
+          <p class="company">Sample Marketing Team · Eligibility to be verified</p>
+          <div class="tags">
+            <span class="tag">Internship</span>
+            <span class="tag">Marketing</span>
+            <span class="tag">Sample listing</span>
+          </div>
+        </div>
+        <span class="tag">Demo only</span>
+      </article>
+
+      <article class="job-card"
+        data-title="Customer Support Assistant"
+        data-type="Part-time">
+        <div>
+          <h3>Customer Support Assistant</h3>
+          <p class="company">Sample Support Team · Eligibility to be verified</p>
+          <div class="tags">
+            <span class="tag">Part-time</span>
+            <span class="tag">Customer Support</span>
+            <span class="tag">Sample listing</span>
+          </div>
+        </div>
+        <span class="tag">Demo only</span>
+      </article>
+
+    </div>
+
+    <p class="empty" id="emptyMessage">
+      No matching sample opportunities found.
+    </p>
+  </section>
+
+  <section class="cta" id="about">
+    <h2>Ready for Your Next Opportunity?</h2>
+    <p>
+      GlobalRemote is being built to connect talent
+      with opportunities across the world.
+    </p>
+    <a href="#jobs" class="apply">Explore Opportunities</a>
+  </section>
+</main>
+
+<footer>
+  <div class="logo">GlobalRemote.</div>
+  <p>Find Opportunities. Work From Anywhere.</p>
+  <p>© 2026 GlobalRemote. All rights reserved.</p>
+</footer>
+
+<script>
+  function searchJobs() {
+    const keyword =
+      document.getElementById("searchInput")
+      .value.toLowerCase();
+
+    const type =
+      document.getElementById("typeFilter").value;
+
+    const cards =
+      document.querySelectorAll(".job-card");
+
+    let visible = 0;
+
+    cards.forEach(card => {
+      const title =
+        card.dataset.title.toLowerCase();
+
+      const category =
+        card.dataset.type;
+
+      const matchesKeyword =
+        title.includes(keyword);
+
+      const matchesType =
+        !type || category === type;
+
+      if (matchesKeyword && matchesType) {
+        card.style.display = "flex";
+        visible++;
+      } else {
+        card.style.display = "none";
+      }
+    });
+
+    document.getElementById("emptyMessage")
+      .style.display = visible ? "none" : "block";
+  }
+
+  document.getElementById("searchInput")
+    .addEventListener("input", searchJobs);
+
+  document.getElementById("typeFilter")
+    .addEventListener("change", searchJobs);
+</script>
+
+</body>
+      </html>
+        
