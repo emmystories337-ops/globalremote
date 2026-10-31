@@ -2,534 +2,652 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Discover remote jobs, freelance projects, internships and part-time opportunities worldwide with GlobalRemote.">
-  <title>GlobalRemote | Work From Anywhere</title>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7f9fc;
-      color: #172033;
-      line-height: 1.6;
-    }
-
-    header {
-      background: white;
-      padding: 18px 6%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #e8edf4;
-    }
-
-    .logo {
-      font-size: 23px;
-      font-weight: 800;
-      color: #1769e0;
-    }
-
-    nav {
-      display: flex;
-      gap: 22px;
-      align-items: center;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #344054;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .nav-btn {
-      background: #1769e0;
-      color: white;
-      padding: 10px 17px;
-      border-radius: 7px;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, #102c59, #1769e0);
-      color: white;
-      padding: 85px 6%;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: clamp(34px, 6vw, 54px);
-      line-height: 1.15;
-      margin-bottom: 18px;
-    }
-
-    .hero p {
-      color: #dce8ff;
-      max-width: 600px;
-      margin: 0 auto 30px;
-      font-size: 17px;
-    }
-
-    .search-box {
-      background: white;
-      padding: 9px;
-      border-radius: 10px;
-      max-width: 780px;
-      margin: auto;
-      display: flex;
-      gap: 8px;
-    }
-
-    .search-box input,
-    .search-box select {
-      min-width: 0;
-      flex: 1;
-      padding: 13px 10px;
-      border: none;
-      outline: none;
-      color: #344054;
-      background: white;
-    }
-
-    button {
-      border: none;
-      cursor: pointer;
-      background: #1769e0;
-      color: white;
-      padding: 13px 22px;
-      border-radius: 7px;
-      font-weight: bold;
-    }
-
-    .stats {
-      display: flex;
-      justify-content: center;
-      gap: 55px;
-      margin-top: 38px;
-      flex-wrap: wrap;
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 22px;
-    }
-
-    .stat span {
-      color: #dce8ff;
-      font-size: 13px;
-    }
-
-    section {
-      padding: 65px 6%;
-    }
-
-    .section-heading {
-      text-align: center;
-      margin-bottom: 35px;
-    }
-
-    .section-heading h2 {
-      font-size: 29px;
-      margin-bottom: 8px;
-    }
-
-    .section-heading p {
-      color: #667085;
-    }
-
-    .categories {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-    }
-
-    .category {
-      background: white;
-      padding: 25px 15px;
-      border: 1px solid #e7ebf2;
-      border-radius: 10px;
-      text-align: center;
-    }
-
-    .category .emoji {
-      font-size: 30px;
-    }
-
-    .category h3 {
-      margin: 9px 0 3px;
-      font-size: 16px;
-    }
-
-    .category p {
-      color: #667085;
-      font-size: 13px;
-    }
-
-    .jobs {
-      background: #fff;
-    }
-
-    .job-list {
-      max-width: 900px;
-      margin: auto;
-      display: grid;
-      gap: 16px;
-    }
-
-    .job-card {
-      background: white;
-      border: 1px solid #e5eaf1;
-      border-radius: 10px;
-      padding: 23px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .job-card h3 {
-      font-size: 18px;
-      margin-bottom: 5px;
-    }
-
-    .company {
-      color: #667085;
-      font-size: 14px;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 12px;
-    }
-
-    .tag {
-      background: #edf4ff;
-      color: #1769e0;
-      padding: 5px 10px;
-      border-radius: 5px;
-      font-size: 12px;
-    }
-
-    .apply {
-      text-decoration: none;
-      background: #1769e0;
-      color: white;
-      padding: 10px 17px;
-      border-radius: 7px;
-      white-space: nowrap;
-      font-size: 13px;
-    }
-
-    .empty {
-      text-align: center;
-      color: #667085;
-      padding: 25px;
-      display: none;
-    }
-
-    .cta {
-      background: #eaf2ff;
-      text-align: center;
-    }
-
-    .cta h2 {
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-
-    .cta p {
-      color: #667085;
-      margin-bottom: 22px;
-    }
-
-    footer {
-      background: #10213d;
-      color: white;
-      padding: 35px 6%;
-      text-align: center;
-    }
-
-    footer p {
-      color: #b9c8df;
-      font-size: 13px;
-      margin-top: 8px;
-    }
-
-    @media(max-width: 700px) {
-      nav {
-        gap: 10px;
-      }
-
-      nav a {
-        font-size: 12px;
-      }
-
-      .hero {
-        padding: 65px 5%;
-      }
-
-      .search-box {
-        flex-direction: column;
-      }
-
-      .search-box input,
-      .search-box select {
-        width: 100%;
-        padding: 14px;
-        border: 1px solid #eee;
-      }
-
-      .stats {
-        gap: 22px;
-      }
-
-      .categories {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .job-card {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .apply {
-        display: inline-block;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Discover worldwide remote jobs, freelance projects, internships and part-time opportunities.">
+<title>GlobalRemote | Work From Anywhere</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+:root{--blue:#1765d8;--dark:#10264b;--light:#f4f7fc;--muted:#68758a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:var(--light);color:#172033;line-height:1.6}
+header{background:white;padding:15px 5%;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;box-shadow:0 2px 12px #0000000b}
+.logo{font-size:23px;font-weight:800;color:var(--blue)}
+nav{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+button,a{cursor:pointer}
+button{border:0;border-radius:8px;padding:11px 16px;background:var(--blue);color:white;font-weight:700;font-size:14px}
+button:hover{opacity:.9}
+button:disabled{opacity:.5;cursor:not-allowed}
+.secondary{background:#eaf1ff;color:var(--blue)}
+.danger{background:#ffe9e9;color:#b42318}
+.hero{background:linear-gradient(120deg,#102b59,#1765d8);color:white;text-align:center;padding:65px 18px}
+.hero h1{font-size:clamp(30px,6vw,48px);line-height:1.15;margin-bottom:15px}
+.hero p{max-width:650px;margin:auto;color:#e2ebff}
+.search{max-width:760px;margin:28px auto 0;background:white;border-radius:12px;padding:12px;display:flex;gap:9px;flex-wrap:wrap}
+.search input{flex:2;min-width:160px}
+.search select{flex:1;min-width:140px}
+input,select,textarea{width:100%;padding:12px;border:1px solid #d7deea;border-radius:8px;background:white;font:inherit;color:#172033}
+input:focus,select:focus,textarea:focus{outline:2px solid #9dbfff;border-color:var(--blue)}
+section{padding:42px 5%}
+.section-heading{margin-bottom:18px}
+.section-heading h2{font-size:25px}
+.muted{color:var(--muted);font-size:14px}
+.categories,.jobs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:white;padding:20px;border:1px solid #e4e9f1;border-radius:13px;box-shadow:0 3px 12px #17203308}
+.category{cursor:pointer}
+.category:hover{border-color:var(--blue)}
+.category h3{color:var(--blue);margin-bottom:5px}
+.job-card h3{font-size:19px;margin-bottom:5px}
+.job-card p{margin:7px 0}
+.tag{display:inline-block;padding:5px 9px;background:#edf3ff;color:#1858ae;border-radius:20px;font-size:12px;margin:7px 5px 5px 0}
+.job-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+#dashboard{display:none;background:#edf3ff}
+#dashboardContent{display:grid;grid-template-columns:1fr;gap:15px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.form-grid .full{grid-column:1/-1}
+.stack{display:grid;gap:10px}
+.notice{padding:12px;text-align:center;color:var(--blue);font-size:14px}
+.empty{padding:25px;text-align:center;color:var(--muted);background:white;border-radius:12px}
+footer{background:var(--dark);color:white;text-align:center;padding:35px 15px}
+footer p{color:#c7d5ed;font-size:14px}
+.modal{display:none;position:fixed;inset:0;background:#07152bd9;z-index:10;overflow:auto;padding:20px}
+.modal-box{max-width:440px;margin:35px auto;background:white;border-radius:15px;padding:23px}
+.modal-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
+.modal-box form{display:grid;gap:12px}
+.modal-box label{font-size:13px;font-weight:bold}
+.close{background:#edf1f7;color:#172033}
+hr{border:0;border-top:1px solid #e6eaf0;margin:15px 0}
+@media(max-width:600px){
+ header{padding:13px 4%}
+ nav{width:100%}
+ nav button{flex:1}
+ .hero{padding:48px 15px}
+ section{padding:32px 4%}
+ .form-grid{grid-template-columns:1fr}
+ .form-grid .full{grid-column:auto}
+}
+</style>
 </head>
-
 <body>
 
 <header>
   <div class="logo">GlobalRemote.</div>
   <nav>
-    <a href="#jobs">Find Jobs</a>
-    <a href="#categories">Categories</a>
-    <a href="#about">About</a>
-    <a href="#jobs" class="nav-btn">Explore Jobs</a>
+    <button class="secondary" onclick="goTo('jobs')">Find Jobs</button>
+    <button class="secondary" onclick="goTo('categories')">Categories</button>
+    <button id="loginBtn" onclick="openAuth('login')">Login</button>
+    <button id="signupBtn" onclick="openAuth('signup')">Create Account</button>
+    <button id="dashboardBtn" class="secondary" style="display:none" onclick="goTo('dashboard')">Dashboard</button>
+    <button id="logoutBtn" class="danger" style="display:none" onclick="logout()">Logout</button>
   </nav>
 </header>
 
-<main>
-  <section class="hero">
-    <h1>Your Next Opportunity<br>Starts Here.</h1>
-    <p>
-      Discover remote jobs, freelance projects,
-      internships and part-time opportunities
-      from companies around the world.
-    </p>
+<div class="hero">
+  <h1>Your Next Opportunity Starts Here.</h1>
+  <p>Find remote jobs, freelance projects, internships and part-time opportunities from companies around the world.</p>
+  <div class="search">
+    <input id="searchText" placeholder="Search job title, company or skill">
+    <select id="searchType">
+      <option value="">All opportunity types</option>
+      <option>Remote</option>
+      <option>Freelance</option>
+      <option>Internship</option>
+      <option>Part-time</option>
+      <option>Full-time</option>
+    </select>
+    <button onclick="loadJobs()">Search Jobs</button>
+  </div>
+</div>
 
-    <div class="search-box">
-      <input id="searchInput"
-        type="search"
-        placeholder="Job title or keyword">
+<div class="notice" id="notice" aria-live="polite">Welcome to GlobalRemote — opportunities from around the world.</div>
 
-      <select id="typeFilter">
-        <option value="">All opportunities</option>
-        <option value="Remote">Remote jobs</option>
-        <option value="Freelance">Freelance</option>
-        <option value="Internship">Internships</option>
-        <option value="Part-time">Part-time</option>
-      </select>
+<section id="categories">
+  <div class="section-heading">
+    <h2>Explore Categories</h2>
+    <p class="muted">Choose the opportunity that fits your goals.</p>
+  </div>
+  <div class="categories">
+    <div class="card category" onclick="chooseType('Remote')"><h3>Remote Jobs</h3><p class="muted">Work from anywhere.</p></div>
+    <div class="card category" onclick="chooseType('Freelance')"><h3>Freelance</h3><p class="muted">Find independent projects.</p></div>
+    <div class="card category" onclick="chooseType('Internship')"><h3>Internships</h3><p class="muted">Build valuable experience.</p></div>
+    <div class="card category" onclick="chooseType('Part-time')"><h3>Part-time</h3><p class="muted">Find flexible opportunities.</p></div>
+  </div>
+</section>
 
-      <button onclick="searchJobs()">Search</button>
+<section id="dashboard">
+  <div class="section-heading">
+    <h2>Your Dashboard</h2>
+    <p class="muted" id="profileWelcome">Welcome!</p>
+  </div>
+  <div id="dashboardContent">
+    <div class="card">
+      <h3>Account information</h3>
+      <p id="profileRole" class="muted"></p>
+      <p id="profileEmail" class="muted"></p>
     </div>
 
-    <div class="stats">
-      <div class="stat">
-        <strong>Worldwide</strong>
-        <span>Opportunities</span>
-      </div>
-      <div class="stat">
-        <strong>4 Categories</strong>
-        <span>Work opportunities</span>
-      </div>
-      <div class="stat">
-        <strong>Global</strong>
-        <span>Talent community</span>
-      </div>
-    </div>
-  </section>
-
-  <section id="categories">
-    <div class="section-heading">
-      <h2>Explore Opportunities</h2>
-      <p>Find the kind of work that fits your lifestyle.</p>
+    <div class="card" id="employerPanel" style="display:none">
+      <h3>Publish a job opportunity</h3>
+      <form id="jobForm" class="stack">
+        <input id="jobTitle" placeholder="Job title" required>
+        <input id="jobCompany" placeholder="Company name" required>
+        <input id="jobCategory" placeholder="Category or skill">
+        <input id="jobLocation" placeholder="Location (e.g. Worldwide)">
+        <select id="jobType" required>
+          <option>Remote</option>
+          <option>Freelance</option>
+          <option>Internship</option>
+          <option>Part-time</option>
+          <option>Full-time</option>
+        </select>
+        <textarea id="jobDescription" rows="5" placeholder="Describe the job, requirements and responsibilities" required></textarea>
+        <input id="jobApplyUrl" type="url" placeholder="External application link (optional)">
+        <button type="submit">Publish Job</button>
+      </form>
     </div>
 
-    <div class="categories">
-      <div class="category">
-        <div class="emoji">💻</div>
-        <h3>Remote Jobs</h3>
-        <p>Work from anywhere</p>
-      </div>
-
-      <div class="category">
-        <div class="emoji">🚀</div>
-        <h3>Freelance</h3>
-        <p>Work on projects</p>
-      </div>
-
-      <div class="category">
-        <div class="emoji">🎓</div>
-        <h3>Internships</h3>
-        <p>Start your career</p>
-      </div>
-
-      <div class="category">
-        <div class="emoji">⏰</div>
-        <h3>Part-time</h3>
-        <p>Flexible opportunities</p>
-      </div>
+    <div class="card">
+      <h3 id="activityTitle">Your activity</h3>
+      <div id="activityList" class="stack"><p class="muted">Loading your activity...</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="jobs" id="jobs">
-    <div class="section-heading">
-      <h2>Explore Job Opportunities</h2>
-      <p>Sample listings showing how opportunities will appear.</p>
-    </div>
-
-    <div class="job-list" id="jobList">
-
-      <article class="job-card"
-        data-title="Frontend Developer"
-        data-type="Remote">
-        <div>
-          <h3>Frontend Developer</h3>
-          <p class="company">Sample Company · Worldwide eligibility to be verified</p>
-          <div class="tags">
-            <span class="tag">Remote</span>
-            <span class="tag">Technology</span>
-            <span class="tag">Sample listing</span>
-          </div>
-        </div>
-        <span class="tag">Demo only</span>
-      </article>
-
-      <article class="job-card"
-        data-title="Graphic Designer"
-        data-type="Freelance">
-        <div>
-          <h3>Graphic Designer</h3>
-          <p class="company">Sample Creative Studio · Eligibility to be verified</p>
-          <div class="tags">
-            <span class="tag">Freelance</span>
-            <span class="tag">Design</span>
-            <span class="tag">Sample listing</span>
-          </div>
-        </div>
-        <span class="tag">Demo only</span>
-      </article>
-
-      <article class="job-card"
-        data-title="Marketing Intern"
-        data-type="Internship">
-        <div>
-          <h3>Marketing Intern</h3>
-          <p class="company">Sample Marketing Team · Eligibility to be verified</p>
-          <div class="tags">
-            <span class="tag">Internship</span>
-            <span class="tag">Marketing</span>
-            <span class="tag">Sample listing</span>
-          </div>
-        </div>
-        <span class="tag">Demo only</span>
-      </article>
-
-      <article class="job-card"
-        data-title="Customer Support Assistant"
-        data-type="Part-time">
-        <div>
-          <h3>Customer Support Assistant</h3>
-          <p class="company">Sample Support Team · Eligibility to be verified</p>
-          <div class="tags">
-            <span class="tag">Part-time</span>
-            <span class="tag">Customer Support</span>
-            <span class="tag">Sample listing</span>
-          </div>
-        </div>
-        <span class="tag">Demo only</span>
-      </article>
-
-    </div>
-
-    <p class="empty" id="emptyMessage">
-      No matching sample opportunities found.
-    </p>
-  </section>
-
-  <section class="cta" id="about">
-    <h2>Ready for Your Next Opportunity?</h2>
-    <p>
-      GlobalRemote is being built to connect talent
-      with opportunities across the world.
-    </p>
-    <a href="#jobs" class="apply">Explore Opportunities</a>
-  </section>
-</main>
+<section id="jobs">
+  <div class="section-heading">
+    <h2>Explore Job Opportunities</h2>
+    <p class="muted">Browse opportunities published on GlobalRemote.</p>
+  </div>
+  <div class="jobs" id="jobList"><div class="empty">Loading opportunities...</div></div>
+</section>
 
 <footer>
   <div class="logo">GlobalRemote.</div>
   <p>Find Opportunities. Work From Anywhere.</p>
+  <hr>
   <p>© 2026 GlobalRemote. All rights reserved.</p>
+  <p>Always verify an employer and job offer before sharing personal information or paying any fee.</p>
 </footer>
 
+<!-- ACCOUNT WINDOW -->
+<div class="modal" id="authModal">
+  <div class="modal-box">
+    <div class="modal-top">
+      <h2 id="authHeading">Create Account</h2>
+      <button class="close" onclick="closeAuth()">Close</button>
+    </div>
+    <form id="authForm">
+      <div id="nameWrap">
+        <label for="fullName">Full name</label>
+        <input id="fullName" placeholder="Your full name">
+      </div>
+      <div id="roleWrap">
+        <label for="accountRole">Account type</label>
+        <select id="accountRole">
+          <option value="seeker">I want to find work</option>
+          <option value="employer">I want to hire people</option>
+        </select>
+      </div>
+      <div>
+        <label for="email">Email address</label>
+        <input id="email" type="email" placeholder="you@example.com" required>
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input id="password" type="password" minlength="6" placeholder="At least 6 characters" required>
+      </div>
+      <button type="submit" id="authSubmit">Create Account</button>
+    </form>
+    <p class="muted" style="margin-top:15px" id="authSwitch"></p>
+    <hr>
+    <button class="secondary" style="width:100%" onclick="resetPassword()">Forgot password?</button>
+  </div>
+</div>
+
 <script>
-  function searchJobs() {
-    const keyword =
-      document.getElementById("searchInput")
-      .value.toLowerCase();
+// =======================================
+// SUPABASE CONNECTION
+// =======================================
 
-    const type =
-      document.getElementById("typeFilter").value;
+const SUPABASE_URL = "https://fptulbbrurkvhaaxleco.supabase.co";
+const SUPABASE_KEY = "sb_publishable_kIZhVmDAXbWvtXICIRdpOw_Rjr6BD6j";
 
-    const cards =
-      document.querySelectorAll(".job-card");
+const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-    let visible = 0;
+let currentUser = null;
+let currentProfile = null;
+let authMode = "signup";
 
-    cards.forEach(card => {
-      const title =
-        card.dataset.title.toLowerCase();
+function say(message){
+  document.getElementById("notice").textContent = message;
+}
 
-      const category =
-        card.dataset.type;
+function goTo(id){
+  document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
 
-      const matchesKeyword =
-        title.includes(keyword);
+function chooseType(type){
+  document.getElementById("searchType").value = type;
+  loadJobs();
+  goTo("jobs");
+}
 
-      const matchesType =
-        !type || category === type;
+// =======================================
+// ACCOUNT SIGN UP AND LOGIN
+// =======================================
 
-      if (matchesKeyword && matchesType) {
-        card.style.display = "flex";
-        visible++;
-      } else {
-        card.style.display = "none";
+function openAuth(mode){
+  authMode = mode;
+  document.getElementById("authModal").style.display = "block";
+
+  const signup = mode === "signup";
+  document.getElementById("authHeading").textContent = signup ? "Create Your Account" : "Welcome Back";
+  document.getElementById("authSubmit").textContent = signup ? "Create Account" : "Login";
+  document.getElementById("nameWrap").style.display = signup ? "block" : "none";
+  document.getElementById("roleWrap").style.display = signup ? "block" : "none";
+
+  document.getElementById("authSwitch").innerHTML = signup
+    ? 'Already have an account? <a href="#" id="switchAuth">Login</a>'
+    : 'New to GlobalRemote? <a href="#" id="switchAuth">Create an account</a>';
+
+  document.getElementById("switchAuth").onclick = function(e){
+    e.preventDefault();
+    openAuth(signup ? "login" : "signup");
+  };
+}
+
+function closeAuth(){
+  document.getElementById("authModal").style.display = "none";
+}
+
+document.getElementById("authForm").addEventListener("submit", async function(e){
+  e.preventDefault();
+
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+  const button = document.getElementById("authSubmit");
+  button.disabled = true;
+
+  try{
+    let result;
+
+    if(authMode === "signup"){
+      const fullName = document.getElementById("fullName").value.trim();
+      const role = document.getElementById("accountRole").value;
+
+      if(!fullName){
+        say("Please enter your full name.");
+        return;
       }
-    });
 
-    document.getElementById("emptyMessage")
-      .style.display = visible ? "none" : "block";
+      result = await db.auth.signUp({
+        email,
+        password,
+        options:{
+          data:{full_name:fullName,role:role}
+        }
+      });
+
+      if(!result.error && !result.data.session){
+        closeAuth();
+        say("Account created! Check your email for a verification link before logging in.");
+      }
+    }else{
+      result = await db.auth.signInWithPassword({email,password});
+
+      if(!result.error){
+        closeAuth();
+        say("You are now logged in!");
+      }
+    }
+
+    if(result.error) say(result.error.message);
+  }catch(error){
+    say("Something went wrong. Please try again.");
+  }finally{
+    button.disabled = false;
+  }
+});
+
+// =======================================
+// PASSWORD RESET
+// =======================================
+
+async function resetPassword(){
+  const email = document.getElementById("email").value.trim();
+
+  if(!email){
+    say("Enter your email address first, then tap Forgot password.");
+    return;
   }
 
-  document.getElementById("searchInput")
-    .addEventListener("input", searchJobs);
+  const {error} = await db.auth.resetPasswordForEmail(email,{
+    redirectTo:window.location.origin + window.location.pathname
+  });
 
-  document.getElementById("typeFilter")
-    .addEventListener("change", searchJobs);
+  say(error ? error.message : "Password reset instructions have been sent if that email has an account.");
+}
+
+// =======================================
+// LOAD USER PROFILE AND DASHBOARD
+// =======================================
+
+async function loadProfile(user){
+  currentUser = user;
+
+  const {data,error} = await db
+    .from("profiles")
+    .select("id,full_name,role,created_at")
+    .eq("id",user.id)
+    .single();
+
+  if(error){
+    say("Your account is signed in, but the profile could not load. Please refresh.");
+    return;
+  }
+
+  currentProfile = data;
+
+  document.getElementById("dashboard").style.display = "block";
+  document.getElementById("dashboardBtn").style.display = "inline-block";
+  document.getElementById("loginBtn").style.display = "none";
+  document.getElementById("signupBtn").style.display = "none";
+  document.getElementById("logoutBtn").style.display = "inline-block";
+
+  document.getElementById("profileWelcome").textContent =
+    "Welcome, " + (data.full_name || "GlobalRemote member");
+
+  document.getElementById("profileRole").textContent =
+    "Account type: " + (data.role === "employer" ? "Employer" : "Job seeker");
+
+  document.getElementById("profileEmail").textContent = "Email: " + user.email;
+
+  document.getElementById("employerPanel").style.display =
+    data.role === "employer" ? "block" : "none";
+
+  await loadActivity();
+}
+
+async function startApp(){
+  const {data,error} = await db.auth.getSession();
+  if(error) say(error.message);
+  if(data.session) await loadProfile(data.session.user);
+}
+
+db.auth.onAuthStateChange((event,session)=>{
+  if(session){
+    setTimeout(()=>loadProfile(session.user),0);
+  }else{
+    currentUser = null;
+    currentProfile = null;
+    document.getElementById("dashboard").style.display = "none";
+    document.getElementById("dashboardBtn").style.display = "none";
+    document.getElementById("logoutBtn").style.display = "none";
+    document.getElementById("loginBtn").style.display = "inline-block";
+    document.getElementById("signupBtn").style.display = "inline-block";
+  }
+});
+
+async function logout(){
+  const {error} = await db.auth.signOut();
+  say(error ? error.message : "You have logged out.");
+}
+
+// =======================================
+// DISPLAY AND SEARCH JOBS
+// =======================================
+
+async function loadJobs(){
+  const keyword = document.getElementById("searchText").value.trim();
+  const type = document.getElementById("searchType").value;
+
+  let query = db.from("jobs").select("*").order("created_at",{ascending:false});
+
+  if(keyword){
+    query = query.or(
+      `title.ilike.%${keyword}%,company.ilike.%${keyword}%,category.ilike.%${keyword}%`
+    );
+  }
+
+  if(type) query = query.eq("job_type",type);
+
+  const {data,error} = await query;
+  const list = document.getElementById("jobList");
+  list.replaceChildren();
+
+  if(error){
+    list.textContent = "Could not load jobs. Please refresh the page.";
+    return;
+  }
+
+  if(!data || data.length === 0){
+    const empty = document.createElement("div");
+    empty.className = "empty";
+    empty.textContent = "No published opportunities found. Please check again later.";
+    list.append(empty);
+    return;
+  }
+
+  data.forEach(job=>{
+    const card = document.createElement("article");
+    card.className = "card job-card";
+
+    const title = document.createElement("h3");
+    title.textContent = job.title;
+
+    const company = document.createElement("p");
+    company.className = "muted";
+    company.textContent = job.company + " · " + (job.location || "Worldwide");
+
+    const typeTag = document.createElement("span");
+    typeTag.className = "tag";
+    typeTag.textContent = job.job_type;
+
+    const categoryTag = document.createElement("span");
+    categoryTag.className = "tag";
+    categoryTag.textContent = job.category || "General";
+
+    const description = document.createElement("p");
+    description.textContent = job.description;
+
+    const actions = document.createElement("div");
+    actions.className = "job-actions";
+
+    const apply = document.createElement("button");
+    apply.textContent = "Apply Now";
+    apply.onclick = ()=>applyForJob(job);
+
+    actions.append(apply);
+
+    if(currentProfile && currentProfile.role === "employer" && job.employer_id === currentUser.id){
+      const remove = document.createElement("button");
+      remove.className = "danger";
+      remove.textContent = "Delete Job";
+      remove.onclick = ()=>deleteJob(job.id);
+      actions.append(remove);
+    }
+
+    if(job.apply_url){
+      const external = document.createElement("a");
+      external.href = job.apply_url;
+      external.target = "_blank";
+      external.rel = "noopener noreferrer";
+      external.textContent = "External application link";
+      external.style.display = "block";
+      external.style.marginTop = "10px";
+      actions.append(external);
+    }
+
+    card.append(title,company,typeTag,categoryTag,description,actions);
+    list.append(card);
+  });
+}
+
+// =======================================
+// EMPLOYER JOB POSTING
+// =======================================
+
+document.getElementById("jobForm").addEventListener("submit",async function(e){
+  e.preventDefault();
+
+  if(!currentUser || !currentProfile || currentProfile.role !== "employer"){
+    say("Please sign in with an employer account to publish jobs.");
+    return;
+  }
+
+  const job = {
+    employer_id:currentUser.id,
+    title:document.getElementById("jobTitle").value.trim(),
+    company:document.getElementById("jobCompany").value.trim(),
+    category:document.getElementById("jobCategory").value.trim(),
+    location:document.getElementById("jobLocation").value.trim() || "Worldwide",
+    job_type:document.getElementById("jobType").value,
+    description:document.getElementById("jobDescription").value.trim(),
+    apply_url:document.getElementById("jobApplyUrl").value.trim() || null
+  };
+
+  const {error} = await db.from("jobs").insert(job);
+
+  if(error){
+    say(error.message);
+    return;
+  }
+
+  this.reset();
+  say("Your job has been published!");
+  await loadJobs();
+  await loadActivity();
+});
+
+// =======================================
+// JOB APPLICATIONS
+// =======================================
+
+async function applyForJob(job){
+  if(!currentUser){
+    say("Please log in or create a job seeker account before applying.");
+    openAuth("login");
+    return;
+  }
+
+  if(!currentProfile || currentProfile.role !== "seeker"){
+    say("Only job seeker accounts can apply for jobs.");
+    return;
+  }
+
+  const {error} = await db.from("applications").insert({
+    job_id:job.id,
+    applicant_id:currentUser.id
+  });
+
+  if(error){
+    say(error.code === "23505" ? "You have already applied for this job." : error.message);
+    return;
+  }
+
+  say("Your application has been submitted!");
+  await loadActivity();
+}
+
+// =======================================
+// DELETE AN EMPLOYER'S OWN JOB
+// =======================================
+
+async function deleteJob(id){
+  if(!confirm("Are you sure you want to delete this job?")) return;
+
+  const {error} = await db.from("jobs").delete().eq("id",id);
+
+  if(error){
+    say(error.message);
+    return;
+  }
+
+  say("Job deleted.");
+  await loadJobs();
+  await loadActivity();
+}
+
+// =======================================
+// DASHBOARD ACTIVITY
+// =======================================
+
+async function loadActivity(){
+  if(!currentUser || !currentProfile) return;
+
+  const area = document.getElementById("activityList");
+  area.replaceChildren();
+
+  if(currentProfile.role === "employer"){
+    document.getElementById("activityTitle").textContent = "Your published jobs";
+
+    const {data,error} = await db
+      .from("jobs")
+      .select("id,title,company,created_at")
+      .eq("employer_id",currentUser.id)
+      .order("created_at",{ascending:false});
+
+    if(error){
+      area.textContent = error.message;
+      return;
+    }
+
+    if(!data.length){
+      area.textContent = "You haven't published any jobs yet.";
+      return;
+    }
+
+    data.forEach(job=>{
+      const item = document.createElement("div");
+      item.className = "card";
+      const heading = document.createElement("strong");
+      heading.textContent = job.title;
+      const company = document.createElement("p");
+      company.className = "muted";
+      company.textContent = job.company;
+      item.append(heading,company);
+      area.append(item);
+    });
+
+  }else{
+    document.getElementById("activityTitle").textContent = "Your applications";
+
+    const {data,error} = await db
+      .from("applications")
+      .select("id,created_at,jobs(title,company)")
+      .eq("applicant_id",currentUser.id)
+      .order("created_at",{ascending:false});
+
+    if(error){
+      area.textContent = error.message;
+      return;
+    }
+
+    if(!data.length){
+      area.textContent = "You haven't applied for any jobs yet.";
+      return;
+    }
+
+    data.forEach(application=>{
+      const item = document.createElement("div");
+      item.className = "card";
+      const heading = document.createElement("strong");
+      heading.textContent = application.jobs?.title || "Job application";
+      const company = document.createElement("p");
+      company.className = "muted";
+      company.textContent = application.jobs?.company || "";
+      item.append(heading,company);
+      area.append(item);
+    });
+  }
+}
+
+// =======================================
+// START THE WEBSITE
+// =======================================
+
+loadJobs();
+startApp();
 </script>
-
 </body>
-      </html>
-        
+</html>
